@@ -45,6 +45,15 @@ def get_starships(index):
 	except  IndexError:
 		return None
 
+def get_homeworld(index):
+	data = requests.get('https://www.swapi.co/api/people/%d' % (index))
+	data = json.loads(data.text)
+	try:
+		data['homeworld'] = info(data['homeworld'])
+		return data['homeworld']
+	except  IndexError:
+		return None
+
 
 
 
