@@ -35,6 +35,17 @@ def get_species(index):
 		return None
 
 
+def get_starships(index):
+	data = requests.get('https://www.swapi.co/api/people/%d' % (index))
+	data = json.loads(data.text)
+	try:
+		for x in range(len(data['starships'])):
+			data['starships'][x] = info(data['starships'][x])
+		return data['starships']
+	except  IndexError:
+		return None
+
+
 
 
 
