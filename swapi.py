@@ -191,7 +191,7 @@ def callCharacter():
 	print(mood)
 	if mood == 'No' or mood == 'nope' or mood == 'no':
 		pass
-	elif mood == 'Ya' or mood == 'yes' or mood == 'YES' or mood == 'Yes':
+	elif mood == 'Ya' or mood == 'yes' or mood == 'YES' or mood == 'Yes' or mood == 'yeet':
 		print('yeet')
 		print('1. View Homeworld')
 		print('2. View Starships')
