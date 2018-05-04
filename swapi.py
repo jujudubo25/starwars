@@ -54,6 +54,113 @@ def get_homeworld(index):
 	except  IndexError:
 		return None
 
+def info(url):
+    data = requests.get(url)
+    data = json.loads(data.text)
+    if 'name' in data:
+    	return data['name']
+    elif 'title' in data:
+    	return data['title'] 
+
+
+def films(title):
+    """
+    Take the name of a movie as a parameter and return it's index in the
+    Star Wars JSON API (SWAPI). Return `None` if there is no match.
+    """
+    itername = ''
+    index = 1
+    while itername != title and index < 15:
+        film = requests.get('https://www.swapi.co/api/films/%d' % (index))
+        data = json.loads(film.text)
+        if data.get('title') == title:
+            return index
+        else:
+            index += 1
+    return
+
+def character(name):
+	"""
+    Take the name of a person as a parameter and return it's index in the
+    Star Wars JSON API (SWAPI). Return `None` if there is no match.
+    """
+	itername = ''
+	index = 1
+	while itername != name and index < 100:
+		person = requests.get('https://www.swapi.co/api/people/%d' % (index))
+		data = json.loads(person.text)
+		if data.get('name') == name:
+			return index
+		else:
+			index += 1
+	return
+
+def planets(name):
+	"""
+    Take the name of a planet as a parameter and return it's index in the
+    Star Wars JSON API (SWAPI). Return `None` if there is no match.
+    """
+	itername = ''
+	index = 1
+	while itername != name and index < 100:
+		planet = requests.get('https://www.swapi.co/api/planets/%d' % (index))
+		data = json.loads(planet.text)
+		if data.get('name') == name:
+			return index
+		else:
+			index += 1
+	return index - 1
+
+def species(name):
+    """
+    Take the name of a species as a parameter and return it's index in the
+    Star Wars JSON API (SWAPI). Return `None` if there is no match.
+    """
+    itername = ''
+    index = 1
+    while itername != name and index < 100:
+        species = requests.get('https://www.swapi.co/api/species/%d' % (index))
+        data = json.loads(species.text)
+
+        if data.get('name') == name:
+            return index
+        else:
+            index += 1
+    return index - 1
+
+def vehicles(name):
+	"""
+    Take the name of a vehicle as a parameter and return it's index in the
+    Star Wars JSON API (SWAPI). Return `None` if there is no match.
+    """
+	itername = ''
+	index = 1
+	while itername != name and index < 100:
+		vehicle = requests.get('https://www.swapi.co/api/vehicles/%d' % (index))
+		data = json.loads(vehicle.text)
+		if data.get('name') == name:
+			return index
+		else:
+			index += 1
+	return index - 1
+
+def starships(name):
+    """
+    Take the name of a starship as a parameter and return it's index in the
+    Star Wars JSON API (SWAPI). Return `None` if there is no match.
+    """
+    itername = ''
+    index = 2
+    while itername != name and index < 100:
+        starship = requests.get('https://www.swapi.co/api/starships/%d' % (index))
+        data = json.loads(starship.text)
+
+        if data.get('name') == name:
+            return index
+        else:
+            index += 1
+    return index - 1
+
 
 
 
