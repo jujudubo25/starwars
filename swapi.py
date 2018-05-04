@@ -162,6 +162,73 @@ def starships(name):
     return index - 1
 
 
+def callCharacter():
+	name = input('Which Star Wars character would you like to learn about? ')
+	print()
+	index = character(name)
+	myReq = requests.get('https://www.swapi.co/api/people/%d' % (index))
+	data = json.loads(myReq.text)
+	for key in data.keys():
+		if type(data[key]) == list or 'https://' in data[key]:
+			pass
+		else:
+			#print('-'* 170)
+			print(key, ":", data[key])
+			print('-'* 50)
+	print('films: ', get_films(character(name)))
+	print('-'* 50)
+	print('homeworld: ', get_homeworld(character(name)))
+	print('-'* 50)
+	print('species: ', get_species(character(name)))
+	print('-'* 50)
+	print('vehicle(s): ', get_vehicle(character(name)))
+	print('-'* 50)
+	print('starship(s): ', get_starships(character(name)))
+	print('-'* 50)
+	print()
+	print()
+	mood = input('Would you like to learn more about this character? ')
+	print(mood)
+	if mood == 'No' or mood == 'nope' or mood == 'no':
+		pass
+	elif mood == 'Ya' or mood == 'yes' or mood == 'YES' or mood == 'Yes':
+		print('yeet')
+		print('1. View Homeworld')
+		print('2. View Starships')
+		print('3. View Vehicles')
+		print('4. View Species')
+		print('5. View Films')
+		blob = input('Make a selection ')
+		if blob == '1':
+			req = requests.get(data['homeworld'])
+			data = json.loads(req.text)
+			for key in data:
+				print(key, ':', data[key])
+				print('*'-50)
+		elif blob == '2':
+			#req = requests.get(data['starships'])
+			#data = json.loads(req.text)
+			#for key in data:
+				#print(key, ':', data[key])
+				#print('*'-50)
+			print('This option is not currently working')
+			print('Sorry!')
+			print()
+			print()
+			print()
+		elif blob == '3':
+			print('This option is not currently working')
+			print('Sorry!')
+			print()
+			print()
+			print()
+			
+		elif blob == '4':
+			req = requests.get(data['species'])
+			data = json.loads(req.text)
+			for key in data:
+				print(key, ':', data[key])
+				print('*'-50)
 
 
 
