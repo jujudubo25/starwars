@@ -14,6 +14,15 @@ def get_vehicle(index):
 	except  IndexError:
 		return None
 
+def get_films(index):
+	data = requests.get('https://www.swapi.co/api/people/%d' % (index))
+	data = json.loads(data.text)
+	try:
+		for x in range(len(data['films'])):
+			data['films'][x] = info(data['films'][x])
+		return data['films']
+	except  IndexError:
+		return None
 
 
 
