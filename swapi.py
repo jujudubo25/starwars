@@ -13,3 +13,59 @@ def get_vehicle(index):
 		return data['vehicles']
 	except  IndexError:
 		return None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def main():
+	"""
+	Responsible for running the entire program,
+	all functions are implemented into this function in a way that
+	makes everything run easily. 
+	"""
+	exit = False
+	while exit == False:
+		print('1. View Characters')
+		print('2. View Planets')
+		print('3. View Species')
+		print('4. View Films')
+		print('5. View Starships')
+		print('6. View vehicles')
+		print('7. Quit')
+		print()
+		bigmood = input('Make a selection ')
+		if bigmood == '1':
+			callCharacter()	
+		elif bigmood == '2':
+			callPlanet()
+		elif bigmood == '3':
+			callSpecies()
+		elif bigmood == '4':
+			callFilms()
+		elif bigmood == '5':
+			callStarships()
+		elif bigmood == '6':
+			callVehicles()
+		elif bigmood == '7':
+			exit = True
+		else:
+			print('Unrecognized Input')
+
+main()
