@@ -166,6 +166,73 @@ def starships(name):
 
 
 
+def callPlanet():
+	name = input('Which Star Wars planet would you like to learn about? ')
+	print()
+	index = planet(name)
+	myReq = requests.get('https://www.swapi.co/api/planets/%d' % (index))
+	data = json.loads(myReq.text)
+	for key in data.keys():
+		print(key, ":", data[key])
+		print('-'* 50)	
+	print()
+	print()
+	print('-'* 50)
+
+def callSpecies():
+	name = input('Which Star Wars species would you like to learn about? ')
+	print()
+	index = species(name)
+	myReq = requests.get('https://www.swapi.co/api/species/%d' % (index))
+	data = json.loads(myReq.text)
+	for key in data.keys():
+		print(key, ":", data[key])
+		print('-'* 50)	
+	print()
+	print()
+	print('-'* 50)
+
+
+def callFilms():
+	name = input('Which Star Wars film would you like to learn about? ')
+	print()
+	index = films(name)
+	myReq = requests.get('https://www.swapi.co/api/films/%d' % (index))
+	data = json.loads(myReq.text)
+	for key in data.keys():
+		print(key, ":", data[key])
+		print('-'* 50)	
+	print()
+	print()
+	print('-'* 50)
+
+
+def callStarships():
+	name = input('Which Star Wars starship would you like to learn about? ')
+	print()
+	index = starships(name)
+	myReq = requests.get('https://www.swapi.co/api/starships/%d' % (index))
+	data = json.loads(myReq.text)
+	for key in data.keys():
+		print(key, ":", data[key])
+		print('-'* 50)	
+	print()
+	print()
+	print('-'* 50)
+
+
+def callVehicles():
+	name = input('Which Star Wars vehicle would you like to learn about? ')
+	print()
+	index = vehicles(name)
+	myReq = requests.get('https://www.swapi.co/api/vehicles/%d' % (index))
+	data = json.loads(myReq.text)
+	for key in data.keys():
+		print(key, ":", data[key])
+		print('-'* 50)	
+	print()
+	print()
+	print('-'* 50)
 
 
 
