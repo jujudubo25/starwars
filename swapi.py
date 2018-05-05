@@ -188,11 +188,9 @@ def callCharacter():
 	print()
 	print()
 	mood = input('Would you like to learn more about this character? ')
-	print(mood)
 	if mood == 'No' or mood == 'nope' or mood == 'no':
 		pass
 	elif mood == 'Ya' or mood == 'yes' or mood == 'YES' or mood == 'Yes' or mood == 'yeet':
-		print('yeet')
 		print('1. View Homeworld')
 		print('2. View Starships')
 		print('3. View Vehicles')
@@ -204,18 +202,13 @@ def callCharacter():
 			data = json.loads(req.text)
 			for key in data:
 				print(key, ':', data[key])
-				print('*'-50)
+				print('-' * 50)
 		elif blob == '2':
-			#req = requests.get(data['starships'])
-			#data = json.loads(req.text)
-			#for key in data:
-				#print(key, ':', data[key])
-				#print('*'-50)
-			print('This option is not currently working')
-			print('Sorry!')
-			print()
-			print()
-			print()
+			req = requests.get(data['starships'])
+			data = json.loads(req.text)
+			for key in data:
+				print(key, ':', data[key])
+				print('-'* 50)
 		elif blob == '3':
 			print('This option is not currently working')
 			print('Sorry!')
